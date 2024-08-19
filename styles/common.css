@@ -1,3 +1,5 @@
+/* 반응형 width값 변경 시 자연스러운 동적 추가 기능 */
+*{transition: width 0.3s, font-size 0.3s;}
 /* header, footer 전용 위치 */
 /* header pc */
 header {
@@ -42,8 +44,9 @@ header .lnb .alarm img {filter: invert(1); width: 100%;} /* 반전!! 검정에�
 /* img태그를 반응형처리할 경우에는 img는 width:100% (상대값)로 설정하고
 img의 부모 태그한테 원하는 px 크기를 적용하는 방향으로 처리한다 */
 /* ===============================태블릿, 모바일에서 보이는 메뉴 위치 */
-header .lnb .m_nav {/* display: none; */
-  background: brown; width: 32px; height: 32px; position: relative;
+header .lnb .m_nav {
+  width: 32px; height: 32px; position: relative;
+  display: none; /* pc 숨기기 */
 }
 header .lnb .m_nav span {
   display: block; width: 100%; height: 5px; background: #fff;
@@ -51,7 +54,7 @@ header .lnb .m_nav span {
 header .lnb .m_nav span:nth-child(1) {top: 0;}
 header .lnb .m_nav span:nth-child(2) {top: 40%;}
 header .lnb .m_nav span:nth-child(3) {bottom: 0;}
-/* ===================================전체메뉴 span *3  X모양 만들기 */
+/* ===================================전체메뉴 span *3 X모양 만들기 */
 /* header .lnb .m_nav span:nth-child(1) {
   transform: rotate(45deg);
   transform-origin: left top;
@@ -61,10 +64,15 @@ header .lnb .m_nav span:nth-child(3) {
   transform: rotate(-45deg);
   transform-origin: left top;
 } */
-header .m_nav_wrap {display: none;}
-header .m_nav_wrap .gnb {}
-header .m_nav_wrap .gnb > li {}
-header .m_nav_wrap .gnb > li a {}
-header .m_nav_wrap .gnb > li .sub {}
+header .m_nav_wrap {
+  background: #222;
+  position: fixed; right: 0; top: 80px; z-index: 999;  
+}
+header .m_nav_wrap .gnb {padding: 10px 30px 0 15px;}
+header .m_nav_wrap .gnb > li { margin-bottom: 30px;}
+header .m_nav_wrap .gnb > li a {color: #fff; font-size: 1.19rem;}
+header .m_nav_wrap .gnb > li .sub {margin-top: 10px; padding-left: 5px;}
 header .m_nav_wrap .gnb > li .sub li {}
-header .m_nav_wrap .gnb > li .sub li a {}
+header .m_nav_wrap .gnb > li .sub li a {
+  color: #fff; font-size: 1rem; line-height: 1.7;
+}
